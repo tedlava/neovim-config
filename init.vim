@@ -8,9 +8,6 @@
 " On Linux, make sure ~/.local/share/fonts has the patched font or is linked to a
 " folder containing the patched font.
 
-" TODO Write a vim function that will create timestamped backups on write (not
-" automatically) but delete ones beyond a quantity of 5 or some other number.
-
 
 call plug#begin(stdpath('data') . '/plugged')
 Plug 'navarasu/onedark.nvim'
@@ -128,7 +125,6 @@ inoremap <C-d> <C-x><C-d>
 inoremap <C-l> <C-x><C-l>
 
 
-
 " For Nim plugin
 fun! JumpToDef()
   if exists("*GotoDefinition_" . &filetype)
@@ -141,7 +137,6 @@ endf
 " Jump to tag
 nn <M-g> :call JumpToDef()<cr>
 ino <M-g> <esc>:call JumpToDef()<cr>i
-
 
 
 lua << END
