@@ -10,7 +10,7 @@
 
 
 call plug#begin(stdpath('data') . '/plugged')
-Plug 'navarasu/onedark.nvim'
+Plug 'sainnhe/edge'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'simnalamburt/vim-mundo'
 Plug 'nvim-lualine/lualine.nvim'
@@ -43,9 +43,6 @@ set wildmode=longest,list,full " Command mode tab completion operations
 set wildmenu " Full tab completion options displayed on status line
 set clipboard=unnamedplus " Use system clipboard as the default
 syntax on
-set background=dark
-set termguicolors
-hi Comment cterm=italic
 set nobackup " Prefer TimestampedBackups instead
 set undofile
 set undodir=.
@@ -54,7 +51,7 @@ set splitbelow
 set splitright
 
 " Netrw
-let g:netrw_liststyle=3
+let g:netrw_liststyle = 3
 let g:netrw_keepdir = 0
 
 " Shortcuts
@@ -63,6 +60,16 @@ let maplocalleader=" "
 " Allow \ to be used as the leader key in recursive key maps and :g commands
 nmap \ <Space>
 vmap \ <Space>
+
+" Theme settings
+set cursorline
+set background=dark
+hi Comment cterm=italic
+set termguicolors
+let g:edge_better_performance = 1
+colorscheme edge
+nnoremap <leader>c :set background=light<CR>
+nnoremap <leader>C :set background=dark<CR>
 
 " Movement shortcuts
 noremap j gj
@@ -135,12 +142,11 @@ fun! JumpToDef()
 endf
 
 " Jump to tag
-nn <M-g> :call JumpToDef()<cr>
-ino <M-g> <esc>:call JumpToDef()<cr>i
+nn <M-g> :call JumpToDef()<CR>
+ino <M-g> <Esc>:call JumpToDef()<CR>i
 
 
 lua << END
--- require('lualine').setup() -- Use just the default config as is
 require('lualine').setup { -- Use default config with small customizations
   sections = {
     lualine_c = {{'filename', path=2}}, -- 0 = just filename, 1 = relative path, 2 = absolute path
@@ -148,14 +154,8 @@ require('lualine').setup { -- Use default config with small customizations
   inactive_sections = {
     lualine_c = {{'filename', path=2}},
   },
+  options = {
+    theme = 'edge'
+  }
 }
-
--- Modify ~/.local/share/nvim/plugged/onedark.nvim/lua/onedark/highlights.lua:47 to be:
---    LineNr = {fg = c.grey, bg = c.bg1}, -- Add background color to line numbers
-require('onedark').setup {
-    style = 'warmer',
-    toggle_style_key = '<leader>c',
-    toggle_style_list = {'darker', 'deep', 'warmer', 'light'}, -- List of styles to toggle
-}
-require('onedark').load()
 END
