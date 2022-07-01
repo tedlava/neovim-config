@@ -10,7 +10,7 @@
 
 
 call plug#begin(stdpath('data') . '/plugged')
-Plug 'sainnhe/edge'
+Plug 'liuchengxu/space-vim-theme'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'simnalamburt/vim-mundo'
 Plug 'nvim-lualine/lualine.nvim'
@@ -67,7 +67,7 @@ set background=dark
 hi Comment cterm=italic
 set termguicolors
 let g:edge_better_performance = 1
-colorscheme edge
+colorscheme space_vim_theme
 nnoremap <leader>c :set background=light<CR>
 nnoremap <leader>C :set background=dark<CR>
 
@@ -155,7 +155,7 @@ require('lualine').setup { -- Use default config with small customizations
     lualine_c = {{'filename', path=2}},
   },
   options = {
-    theme = 'edge'
+    theme = 'dracula'
   }
 }
 END
