@@ -66,7 +66,6 @@ set cursorline
 set background=dark
 hi Comment cterm=italic
 set termguicolors
-let g:edge_better_performance = 1
 colorscheme space_vim_theme
 nnoremap <leader>c :set background=light<CR>
 nnoremap <leader>C :set background=dark<CR>
