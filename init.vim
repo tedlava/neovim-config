@@ -57,13 +57,13 @@ let g:netrw_keepdir = 0
 " Shortcuts
 let mapleader=" "
 let maplocalleader=" "
-" Allow \ to be used as the leader key in recursive key maps and :g commands
+" 	Allow \ to be used as the leader key in recursive key maps and :g commands
 nmap \ <Space>
 vmap \ <Space>
 
 " Theme settings
 set cursorline
-" Workaround to prevent leftover cursorline on blank lines with indent-blankline plugin
+" 	Workaround to prevent leftover cursorlines with indent-blankline plugin
 set colorcolumn=99999
 set background=dark
 hi Comment cterm=italic
@@ -73,17 +73,21 @@ nnoremap <leader>c :set background=light<CR>
 nnoremap <leader>C :set background=dark<CR>
 
 " Indentation shortcuts
+"	Change tabs to 4 space indents
 nnoremap <leader>i4 :set expandtab tabstop=4 softtabstop=4 shiftwidth=4<CR>:retab<CR>
+"	Change tabs to 2 space indents
 nnoremap <leader>i2 :set expandtab tabstop=2 softtabstop=2 shiftwidth=2<CR>:retab<CR>
-nnoremap <leader>I4 :set noexpandtab ts=4 sts=4 sw=4<CR>:%retab!<CR>:set ts=8 sts=8 sw=8<CR>
-nnoremap <leader>I2 :set noexpandtab ts=2 sts=2 sw=2<CR>:%retab!<CR>:set ts=8 sts=8 sw=8<CR>
+"	Change 4 space indents to tabs
+nnoremap <leader>I4 :set noet ts=4 sts=4 sw=4<CR>:%retab!<CR>:set ts=8 sts=8 sw=8<CR>
+"	Change 2 space indents to tabs
+nnoremap <leader>I2 :set noet ts=2 sts=2 sw=2<CR>:%retab!<CR>:set ts=8 sts=8 sw=8<CR>
 
 " Movement shortcuts
 noremap j gj
 noremap k gk
 noremap <Down> gj
 noremap <Up> gk
-" Use CTRL + arrow keys to jump to/across whitespace in any direction
+" 	Use CTRL + arrow keys to jump to/across whitespace in any direction
 noremap <C-Down> }
 noremap <C-Up> {
 
@@ -103,7 +107,7 @@ nnoremap <S-Right> <C-w>>
 nnoremap <leader><leader> :b#<CR>
 nnoremap \\ :b#<CR>
 nnoremap <leader>b :ls<CR>:buffer 
-" Delete current buffer and switch to previous buffer without losing window split
+" 	Delete current buffer and switch to previous buffer without losing window split
 nnoremap <leader>D :b#<CR>:bd#<CR>
 nnoremap <leader>v <C-w><C-v>:bn<CR>
 nnoremap <leader>s <C-w><C-s>:bn<CR>
@@ -112,13 +116,6 @@ nnoremap <leader>p :bp<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>W :wa<CR>
 nnoremap <leader>f :e<Space>.<CR>
-
-" Undo/redo tree visualization
-nnoremap <leader>u :MundoToggle<CR>
-" Turn off search highlighting
-nnoremap <leader>h :noh<CR>
-" Use ESC to exit insert mode in :term
-tnoremap <Esc> <C-\><C-n>
 
 " TODO list shortcuts
 nnoremap <Leader>t o- [ ] 
@@ -137,6 +134,15 @@ inoremap <C-f> <C-x><C-f>
 inoremap <C-d> <C-x><C-d>
 " 	Lines
 inoremap <C-l> <C-x><C-l>
+
+" Undo/redo tree visualization
+nnoremap <leader>u :MundoToggle<CR>
+
+" Turn off search highlighting
+nnoremap <leader>h :noh<CR>
+
+" Use ESC to exit insert mode in :term
+tnoremap <Esc> <C-\><C-n>
 
 
 " For Nim plugin
