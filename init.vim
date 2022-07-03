@@ -63,12 +63,20 @@ vmap \ <Space>
 
 " Theme settings
 set cursorline
+" Workaround to prevent leftover cursorline on blank lines with indent-blankline plugin
+set colorcolumn=99999
 set background=dark
 hi Comment cterm=italic
 set termguicolors
 colorscheme space_vim_theme
 nnoremap <leader>c :set background=light<CR>
 nnoremap <leader>C :set background=dark<CR>
+
+" Indentation shortcuts
+nnoremap <leader>i4 :set expandtab tabstop=4 softtabstop=4 shiftwidth=4<CR>:retab<CR>
+nnoremap <leader>i2 :set expandtab tabstop=2 softtabstop=2 shiftwidth=2<CR>:retab<CR>
+nnoremap <leader>I4 :set noexpandtab ts=4 sts=4 sw=4<CR>:%retab!<CR>:set ts=8 sts=8 sw=8<CR>
+nnoremap <leader>I2 :set noexpandtab ts=2 sts=2 sw=2<CR>:%retab!<CR>:set ts=8 sts=8 sw=8<CR>
 
 " Movement shortcuts
 noremap j gj
@@ -123,11 +131,11 @@ vmap <Leader>x :g/- \[ \] /normal \x<CR>:noh<CR>
 vmap <Leader>X :g/- \[ \] /normal \xddGp<CR><C-o>:noh<CR>
 
 " Autocompletion shortcuts
-" ^F = files
-" ^D = definitions / macros
-" ^L = lines
+" 	Files
 inoremap <C-f> <C-x><C-f>
+" 	Definitions/macros
 inoremap <C-d> <C-x><C-d>
+" 	Lines
 inoremap <C-l> <C-x><C-l>
 
 
