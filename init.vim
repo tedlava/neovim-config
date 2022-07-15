@@ -12,7 +12,7 @@
 call plug#begin(stdpath('data') . '/plugged')
 Plug 'liuchengxu/space-vim-theme'
 Plug 'lukas-reineke/indent-blankline.nvim'
-Plug 'simnalamburt/vim-mundo'
+Plug 'simnalamburt/vim-mundo', {'commit': '595ee332719f397c2441d85f79608113957cc78f'} " Workaround for Mundo bug
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'zah/nim.vim'
@@ -42,10 +42,11 @@ set path+=** " Allow for fuzzy file searching of subdirectories
 set wildmode=longest,list,full " Command mode tab completion operations
 set wildmenu " Full tab completion options displayed on status line
 set clipboard=unnamedplus " Use system clipboard as the default
+set statusline=%<%F\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 syntax on
 set nobackup " Prefer TimestampedBackups instead
 set undofile
-set undodir=.
+set undodir=.history
 set list listchars=tab:\│\ ,trail:·,nbsp:⎵
 set splitbelow
 set splitright
