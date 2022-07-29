@@ -73,7 +73,7 @@ colorscheme space_vim_theme
 nnoremap <leader>c :set background=light<CR>
 nnoremap <leader>C :set background=dark<CR>
 
-" Indentation shortcuts
+" Indentation
 "	Change tabs to 4 space indents
 nnoremap <leader>i4 :set expandtab tabstop=4 softtabstop=4 shiftwidth=4<CR>:retab<CR>
 "	Change tabs to 2 space indents
@@ -82,6 +82,8 @@ nnoremap <leader>i2 :set expandtab tabstop=2 softtabstop=2 shiftwidth=2<CR>:reta
 nnoremap <leader>I4 :set noet ts=4 sts=4 sw=4<CR>:%retab!<CR>:set ts=8 sts=8 sw=8<CR>
 "	Change 2 space indents to tabs
 nnoremap <leader>I2 :set noet ts=2 sts=2 sw=2<CR>:%retab!<CR>:set ts=8 sts=8 sw=8<CR>
+autocmd FileType html setlocal ts=2 sts=2 sw=2
+autocmd FileType htmldjango setlocal ts=2 sts=2 sw=2
 
 " Movement shortcuts
 noremap j gj
