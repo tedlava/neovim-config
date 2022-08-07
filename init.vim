@@ -44,12 +44,28 @@ set wildmenu " Full tab completion options displayed on status line
 set clipboard=unnamedplus " Use system clipboard as the default
 set statusline=%<%F\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 syntax on
-set nobackup " Prefer TimestampedBackups instead
-set undofile
-set undodir=.history
 set list listchars=tab:\│\ ,trail:·,nbsp:⎵
 set splitbelow
 set splitright
+set nobackup " Prefer TimestampedBackups instead
+
+" Read/write undofile in relative undodir
+set undodir=.history
+au BufReadPost * call ReadUndo()
+au BufWritePost * call WriteUndo()
+func ReadUndo()
+  let undofile_path = expand('%:h') . '/' . &undodir . '/' . expand('%:t') . '.undo'
+  if filereadable(undofile_path)
+    execute 'rundo ' . undofile_path
+  endif
+endfunc
+func WriteUndo()
+  let dirname = expand('%:h') . '/' . &undodir
+  if !isdirectory(dirname)
+    call mkdir(dirname)
+  endif
+  execute 'wundo ' . dirname . '/' . expand('%:t') . '.undo'
+endfunc
 
 " Netrw
 let g:netrw_liststyle = 3
@@ -110,7 +126,8 @@ nnoremap <S-Right> <C-w>>
 nnoremap <leader><leader> :b#<CR>
 nnoremap \\ :b#<CR>
 nnoremap <leader>b :ls<CR>:buffer 
-" 	Delete current buffer and switch to previous buffer without losing window split
+" 	Delete current buffer and switch to previous buffer without losing current window split
+" 	(may close other splits if multiple splits are pointing to the same buffer)
 nnoremap <leader>D :b#<CR>:bd#<CR>
 nnoremap <leader>v <C-w><C-v>:bn<CR>
 nnoremap <leader>s <C-w><C-s>:bn<CR>
