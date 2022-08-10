@@ -56,7 +56,7 @@ au BufWritePost * call WriteUndo()
 func ReadUndo()
   let undofile_path = expand('%:h') . '/' . &undodir . '/' . expand('%:t') . '.undo'
   if filereadable(undofile_path)
-    execute 'rundo ' . undofile_path
+    execute 'silent rundo ' . undofile_path
   endif
 endfunc
 func WriteUndo()
@@ -64,7 +64,7 @@ func WriteUndo()
   if !isdirectory(dirname)
     call mkdir(dirname)
   endif
-  execute 'wundo ' . dirname . '/' . expand('%:t') . '.undo'
+  execute 'silent wundo ' . dirname . '/' . expand('%:t') . '.undo'
 endfunc
 
 " Netrw
@@ -191,4 +191,3 @@ require('lualine').setup { -- Use default config with small customizations
     theme = 'dracula'
   }
 }
-END
