@@ -45,6 +45,7 @@ set clipboard=unnamedplus " Use system clipboard as the default
 set statusline=%<%F\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 syntax on
 set list listchars=tab:\│\ ,trail:·,nbsp:⎵
+set diffopt+=vertical
 set splitbelow
 set splitright
 set nobackup " Prefer TimestampedBackups instead
