@@ -34,13 +34,15 @@ filetype indent off
 set autoindent
 set ignorecase
 set smartcase
-set formatoptions+=r
+set formatoptions+=ro/
 set hlsearch incsearch
 set hidden " Allows switching between buffers without saving
 set autochdir
 set path+=** " Allow for fuzzy file searching of subdirectories
-set wildmode=longest,list,full " Command mode tab completion operations
-set wildmenu " Full tab completion options displayed on status line
+" 	The following setting is for command line tab completion to the
+" 	longest common string, then another tab to switch to full completions
+" 	within a pop-up menu
+set wildmode=longest,full
 set clipboard=unnamedplus " Use system clipboard as the default
 set statusline=%<%F\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 syntax on
@@ -50,17 +52,18 @@ set splitbelow
 set splitright
 set nobackup " Prefer TimestampedBackups instead
 
+
 " Read/write undofile in relative undodir
 set undodir=.history
 au BufReadPost * call ReadUndo()
 au BufWritePost * call WriteUndo()
-func ReadUndo()
+func! ReadUndo()
   let undofile_path = expand('%:h') . '/' . &undodir . '/' . expand('%:t') . '.undo'
   if filereadable(undofile_path)
     execute 'silent rundo ' . undofile_path
   endif
 endfunc
-func WriteUndo()
+func! WriteUndo()
   let dirname = expand('%:h') . '/' . &undodir
   if !isdirectory(dirname)
     call mkdir(dirname)
@@ -68,9 +71,11 @@ func WriteUndo()
   execute 'silent wundo ' . dirname . '/' . expand('%:t') . '.undo'
 endfunc
 
+
 " Netrw
 let g:netrw_liststyle = 3
 let g:netrw_keepdir = 0
+
 
 " Shortcuts
 let mapleader=" "
@@ -79,16 +84,20 @@ let maplocalleader=" "
 nmap \ <Space>
 vmap \ <Space>
 
+
 " Theme settings
 set cursorline
-" 	Workaround to prevent leftover cursorlines with indent-blankline plugin
-set colorcolumn=99999
+" 	The following setting is a workaround to prevent leftover cursorlines
+" 	with indent-blankline plugin.  Not needed in newest stable GitHub
+" 	release!!
+" set colorcolumn=99999
 set background=dark
 hi Comment cterm=italic
 set termguicolors
 colorscheme space_vim_theme
 nnoremap <leader>c :set background=light<CR>
 nnoremap <leader>C :set background=dark<CR>
+
 
 " Indentation
 "	Change tabs to 4 space indents
@@ -102,6 +111,7 @@ nnoremap <leader>I2 :set noet ts=2 sts=2 sw=2<CR>:%retab!<CR>:set ts=8 sts=8 sw=
 autocmd FileType html setlocal ts=2 sts=2 sw=2
 autocmd FileType htmldjango setlocal ts=2 sts=2 sw=2
 
+
 " Movement shortcuts
 noremap j gj
 noremap k gk
@@ -111,11 +121,13 @@ noremap <Up> gk
 noremap <C-Down> }
 noremap <C-Up> {
 
+
 " Split window navigation shortcuts
 nnoremap <C-h> <C-w><C-h>
 nnoremap <C-j> <C-w><C-j>
 nnoremap <C-k> <C-w><C-k>
 nnoremap <C-l> <C-w><C-l>
+
 
 " Split window resizing shortcuts
 nnoremap <S-Down> <C-w>-
@@ -123,13 +135,22 @@ nnoremap <S-Up> <C-w>+
 nnoremap <S-Left> <C-w><
 nnoremap <S-Right> <C-w>>
 
+
 " Buffer shortcuts
 nnoremap <leader><leader> :b#<CR>
 nnoremap \\ :b#<CR>
-nnoremap <leader>b :ls<CR>:buffer 
-" 	Delete current buffer and switch to previous buffer without losing current window split
-" 	(may close other splits if multiple splits are pointing to the same buffer)
-nnoremap <leader>D :b#<CR>:bd#<CR>
+" 	In the newest stable GitHub release, the buffer list does not stay
+" 	visible when entering other commands.  Changing the following setting
+" 	to just listing all buffers for now and may change this back if this
+" 	was just a regression.  If the new behavior is the desired behavior
+" 	from now on, then it also may stay as just listing all buffers from
+" 	now on...
+" nnoremap <leader>b :ls<CR>:buffer 
+nnoremap <leader>b :ls<CR>
+" 	The following setting will delete the current buffer and switch to
+" 	previous buffer without losing current window split (may close other
+" 	splits if multiple splits are pointing to the same buffer)
+nnoremap <leader>D :bp<CR>:bd#<CR>
 nnoremap <leader>v <C-w><C-v>:bn<CR>
 nnoremap <leader>s <C-w><C-s>:bn<CR>
 nnoremap <leader>n :bn<CR>
@@ -137,6 +158,7 @@ nnoremap <leader>p :bp<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>W :wa<CR>
 nnoremap <leader>f :e<Space>.<CR>
+
 
 " TODO list shortcuts
 nnoremap <Leader>t o- [ ] 
@@ -148,6 +170,7 @@ vnoremap <Leader>t :g!/- \[ \] /normal I- [ ] <CR>:noh<CR>
 vmap <Leader>x :g/- \[ \] /normal \x<CR>:noh<CR>
 vmap <Leader>X :g/- \[ \] /normal \xddGp<CR><C-o>:noh<CR>
 
+
 " Autocompletion shortcuts
 " 	Files
 inoremap <C-f> <C-x><C-f>
@@ -156,24 +179,28 @@ inoremap <C-d> <C-x><C-d>
 " 	Lines
 inoremap <C-l> <C-x><C-l>
 
+
 " Undo/redo tree visualization
 nnoremap <leader>u :MundoToggle<CR>
 
+
 " Turn off search highlighting
 nnoremap <leader>h :noh<CR>
+
 
 " Use ESC to exit insert mode in :term
 tnoremap <Esc> <C-\><C-n>
 
 
 " For Nim plugin
-fun! JumpToDef()
+func! JumpToDef()
   if exists("*GotoDefinition_" . &filetype)
     call GotoDefinition_{&filetype}()
   else
     exe "norm! \<C-]>"
   endif
 endf
+
 
 " Jump to tag
 nn <M-g> :call JumpToDef()<CR>
