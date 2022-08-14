@@ -42,7 +42,7 @@ set path+=** " Allow for fuzzy file searching of subdirectories
 " 	The following setting is for command line tab completion to the
 " 	longest common string, then another tab to switch to full completions
 " 	within a pop-up menu
-set wildmode=longest,full
+set wildmode=longest,list,full
 set clipboard=unnamedplus " Use system clipboard as the default
 set statusline=%<%F\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 syntax on
@@ -139,12 +139,12 @@ nnoremap <S-Right> <C-w>>
 " Buffer shortcuts
 nnoremap <leader><leader> :b#<CR>
 nnoremap \\ :b#<CR>
-" 	In the newest stable GitHub release, the buffer list does not stay
+" 	Running the latest stable GitHub release (either .deb or AppImage)
+" 	will produce this weird bug where the buffer list does not stay
 " 	visible when entering other commands.  Changing the following setting
-" 	to just listing all buffers for now and may change this back if this
-" 	was just a regression.  If the new behavior is the desired behavior
-" 	from now on, then it also may stay as just listing all buffers from
-" 	now on...
+" 	to just listing all buffers for now.  This does not happen at all on
+" 	Debian sid, even when running the same version and same AppImage from
+" 	GitHub as well!
 " nnoremap <leader>b :ls<CR>:buffer 
 nnoremap <leader>b :ls<CR>
 " 	The following setting will delete the current buffer and switch to
@@ -219,3 +219,4 @@ require('lualine').setup { -- Use default config with small customizations
     theme = 'dracula'
   }
 }
+END
