@@ -39,10 +39,7 @@ set hlsearch incsearch
 set hidden " Allows switching between buffers without saving
 set autochdir
 set path+=** " Allow for fuzzy file searching of subdirectories
-" 	The following setting is for command line tab completion to the
-" 	longest common string, then another tab to switch to full completions
-" 	within a pop-up menu
-set wildmode=longest,list,full
+set wildmode=longest,full " For command line tab completion
 set clipboard=unnamedplus " Use system clipboard as the default
 set statusline=%<%F\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 syntax on
@@ -87,10 +84,7 @@ vmap \ <Space>
 
 " Theme settings
 set cursorline
-" 	The following setting is a workaround to prevent leftover cursorlines
-" 	with indent-blankline plugin.  Not needed in newest stable GitHub
-" 	release!!
-" set colorcolumn=99999
+" set colorcolumn=99999 " Workaround for leftover cursorlines with indent-blankline plugin; not needed anymore!
 set background=dark
 hi Comment cterm=italic
 set termguicolors
@@ -145,8 +139,8 @@ nnoremap \\ :b#<CR>
 " 	to just listing all buffers for now.  This does not happen at all on
 " 	Debian sid, even when running the same version and same AppImage from
 " 	GitHub as well!
-" nnoremap <leader>b :ls<CR>:buffer 
-nnoremap <leader>b :ls<CR>
+nnoremap <leader>b :ls<CR>:buffer 
+" nnoremap <leader>b :ls<CR>
 " 	The following setting will delete the current buffer and switch to
 " 	previous buffer without losing current window split (may close other
 " 	splits if multiple splits are pointing to the same buffer)
