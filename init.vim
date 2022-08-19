@@ -12,7 +12,7 @@
 call plug#begin(stdpath('data') . '/plugged')
 Plug 'liuchengxu/space-vim-theme'
 Plug 'lukas-reineke/indent-blankline.nvim'
-Plug 'simnalamburt/vim-mundo', {'commit': '595ee332719f397c2441d85f79608113957cc78f'} " Workaround for Mundo bug
+Plug 'simnalamburt/vim-mundo'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'zah/nim.vim'
@@ -40,6 +40,7 @@ set hidden " Allows switching between buffers without saving
 set autochdir
 set path+=** " Allow for fuzzy file searching of subdirectories
 set wildmode=longest,full " For command line tab completion
+set wildmenu
 set clipboard=unnamedplus " Use system clipboard as the default
 set statusline=%<%F\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 syntax on
@@ -77,14 +78,13 @@ let g:netrw_keepdir = 0
 " Shortcuts
 let mapleader=" "
 let maplocalleader=" "
-" 	Allow \ to be used as the leader key in recursive key maps and :g commands
 nmap \ <Space>
 vmap \ <Space>
+" 	Allow \ to be used as the leader key in recursive key maps and :g commands
 
 
 " Theme settings
 set cursorline
-" set colorcolumn=99999 " Workaround for leftover cursorlines with indent-blankline plugin; not needed anymore!
 set background=dark
 hi Comment cterm=italic
 set termguicolors
@@ -94,14 +94,14 @@ nnoremap <leader>C :set background=dark<CR>
 
 
 " Indentation
-"	Change tabs to 4 space indents
 nnoremap <leader>i4 :set expandtab tabstop=4 softtabstop=4 shiftwidth=4<CR>:retab<CR>
-"	Change tabs to 2 space indents
+"	Change tabs to 4 space indents
 nnoremap <leader>i2 :set expandtab tabstop=2 softtabstop=2 shiftwidth=2<CR>:retab<CR>
-"	Change 4 space indents to tabs
+"	Change tabs to 2 space indents
 nnoremap <leader>I4 :set noet ts=4 sts=4 sw=4<CR>:%retab!<CR>:set ts=8 sts=8 sw=8<CR>
-"	Change 2 space indents to tabs
+"	Change 4 space indents to tabs
 nnoremap <leader>I2 :set noet ts=2 sts=2 sw=2<CR>:%retab!<CR>:set ts=8 sts=8 sw=8<CR>
+"	Change 2 space indents to tabs
 autocmd FileType html setlocal ts=2 sts=2 sw=2
 autocmd FileType htmldjango setlocal ts=2 sts=2 sw=2
 
@@ -111,9 +111,9 @@ noremap j gj
 noremap k gk
 noremap <Down> gj
 noremap <Up> gk
-" 	Use CTRL + arrow keys to jump to/across whitespace in any direction
 noremap <C-Down> }
 noremap <C-Up> {
+" 	Use CTRL + arrow keys to jump to/across whitespace in any direction
 
 
 " Split window navigation shortcuts
@@ -133,18 +133,11 @@ nnoremap <S-Right> <C-w>>
 " Buffer shortcuts
 nnoremap <leader><leader> :b#<CR>
 nnoremap \\ :b#<CR>
-" 	Running the latest stable GitHub release (either .deb or AppImage)
-" 	will produce this weird bug where the buffer list does not stay
-" 	visible when entering other commands.  Changing the following setting
-" 	to just listing all buffers for now.  This does not happen at all on
-" 	Debian sid, even when running the same version and same AppImage from
-" 	GitHub as well!
 nnoremap <leader>b :ls<CR>:buffer 
-" nnoremap <leader>b :ls<CR>
-" 	The following setting will delete the current buffer and switch to
+nnoremap <leader>D :bp<CR>:bd#<CR>
+" 	The above keymap will delete the current buffer and switch to
 " 	previous buffer without losing current window split (may close other
 " 	splits if multiple splits are pointing to the same buffer)
-nnoremap <leader>D :bp<CR>:bd#<CR>
 nnoremap <leader>v <C-w><C-v>:bn<CR>
 nnoremap <leader>s <C-w><C-s>:bn<CR>
 nnoremap <leader>n :bn<CR>
@@ -166,12 +159,12 @@ vmap <Leader>X :g/- \[ \] /normal \xddGp<CR><C-o>:noh<CR>
 
 
 " Autocompletion shortcuts
-" 	Files
 inoremap <C-f> <C-x><C-f>
-" 	Definitions/macros
+" 	Files
 inoremap <C-d> <C-x><C-d>
-" 	Lines
+" 	Definitions/macros
 inoremap <C-l> <C-x><C-l>
+" 	Lines
 
 
 " Undo/redo tree visualization
