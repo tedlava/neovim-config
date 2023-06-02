@@ -34,7 +34,7 @@ filetype indent off
 set autoindent
 set ignorecase
 set smartcase
-set formatoptions+=ro/
+set formatoptions+=ro
 set hlsearch incsearch
 set hidden " Allows switching between buffers without saving
 set autochdir
@@ -121,6 +121,7 @@ nnoremap <C-h> <C-w><C-h>
 nnoremap <C-j> <C-w><C-j>
 nnoremap <C-k> <C-w><C-k>
 nnoremap <C-l> <C-w><C-l>
+nnoremap <leader>r <C-w><C-r>
 
 
 " Split window resizing shortcuts
