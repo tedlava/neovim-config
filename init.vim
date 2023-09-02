@@ -93,6 +93,14 @@ nnoremap <leader>c :set background=light<CR>
 nnoremap <leader>C :set background=dark<CR>
 
 
+" Toggle relative line numbers with focus
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
+  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
+augroup END
+
+
 " Indentation
 nnoremap <leader>i4 :set expandtab tabstop=4 softtabstop=4 shiftwidth=4<CR>:retab<CR>
 "	Change tabs to 4 space indents
@@ -148,17 +156,6 @@ nnoremap <leader>W :wa<CR>
 nnoremap <leader>f :e<Space>.<CR>
 
 
-" TODO list shortcuts
-nnoremap <Leader>t o- [ ] 
-nnoremap <Leader>T O- [ ] 
-nnoremap <Leader>x 0f[lrxA [<C-r>=strftime('%F %a %T')<CR>]<Esc>
-nmap <Leader>X \xddGp<C-o>
-inoremap <C-j> <Esc>o- [ ] 
-vnoremap <Leader>t :g!/- \[ \] /normal I- [ ] <CR>:noh<CR>
-vmap <Leader>x :g/- \[ \] /normal \x<CR>:noh<CR>
-vmap <Leader>X :g/- \[ \] /normal \xddGp<CR><C-o>:noh<CR>
-
-
 " Autocompletion shortcuts
 inoremap <C-f> <C-x><C-f>
 " 	Files
@@ -168,16 +165,27 @@ inoremap <C-l> <C-x><C-l>
 " 	Lines
 
 
-" Undo/redo tree visualization
-nnoremap <leader>u :MundoToggle<CR>
-
-
 " Turn off search highlighting
 nnoremap <leader>h :noh<CR>
 
 
 " Use ESC to exit insert mode in :term
 tnoremap <Esc> <C-\><C-n>
+
+
+" Undo/redo tree visualization
+nnoremap <leader>u :MundoToggle<CR>
+
+
+" TODO list shortcuts
+nnoremap <Leader>t o- [ ] 
+nnoremap <Leader>T O- [ ] 
+nnoremap <Leader>x 0f[lrxA [<C-r>=strftime('%F %a %T')<CR>]<Esc>
+nmap <Leader>X \xddGp<C-o>
+inoremap <C-j> <Esc>o- [ ] 
+vnoremap <Leader>t :g!/- \[ \] /normal I- [ ] <CR>:noh<CR>
+vmap <Leader>x :g/- \[ \] /normal \x<CR>:noh<CR>
+vmap <Leader>X :g/- \[ \] /normal \xddGp<CR><C-o>:noh<CR>
 
 
 " For Nim plugin
