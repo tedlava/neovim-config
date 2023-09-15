@@ -121,8 +121,8 @@ noremap <Down> gj
 noremap <Up> gk
 inoremap <Down> <C-o>gj
 inoremap <Up> <C-o>gk
-nnoremap <expr> j v:count ? 'j' : 'gj'
-nnoremap <expr> k v:count ? 'k' : 'gk'
+noremap <expr> j v:count ? 'j' : 'gj'
+noremap <expr> k v:count ? 'k' : 'gk'
 noremap <C-Down> }
 noremap <C-Up> {
 " 	Use CTRL + arrow keys to jump to/across whitespace in any direction
