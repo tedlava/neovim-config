@@ -143,18 +143,21 @@ nnoremap <S-Left> <C-w><
 nnoremap <S-Right> <C-w>>
 
 
-" Buffer shortcuts
+" Buffer and tab shortcuts
 nnoremap <leader><leader> :b#<CR>
 nnoremap \\ :b#<CR>
 nnoremap <leader>b :ls<CR>:buffer 
-nnoremap <leader>D :bp<CR>:bd#<CR>
+nnoremap <leader>B :ls<CR>:tab sb 
+nnoremap <leader>D :bn<CR>:bd#<CR>
 " 	The above keymap will delete the current buffer and switch to
-" 	previous buffer without losing current window split (may close other
+" 	next buffer without losing current window split (may close other
 " 	splits if multiple splits are pointing to the same buffer)
 nnoremap <leader>v <C-w><C-v>:bn<CR>
 nnoremap <leader>s <C-w><C-s>:bn<CR>
 nnoremap <leader>n :bn<CR>
+nnoremap <leader>N :tab sbn<CR>
 nnoremap <leader>p :bp<CR>
+nnoremap <leader>P :tab sbp<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>W :wa<CR>
 nnoremap <leader>f :e<Space>.<CR>
