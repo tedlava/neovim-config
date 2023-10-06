@@ -185,6 +185,7 @@ nnoremap <leader>u :MundoToggle<CR>
 
 
 " TODO list shortcuts
+nnoremap <Leader>d i<C-r>=strftime('%F %a %T')<CR>
 nnoremap <Leader>t o- [ ] 
 nnoremap <Leader>T O- [ ] 
 nnoremap <Leader>x 0f[lrxA [<C-r>=strftime('%F %a %T')<CR>]<Esc>
