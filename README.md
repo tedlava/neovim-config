@@ -4,10 +4,13 @@ My personal init.vim for Neovim 0.5 or higher. Does NOT work with Vim (has some 
 
 ## Pre-requisites
 - Make sure a Nerd-compatible patched font is installed: https://www.nerdfonts.com/
-  Go to https://github.com/ryanoasis/nerd-fonts/releases and click on the link to "show all assets" under the latest release.
-  I prefer Hack, here is the link for the latest release at the time of this writing:
-	https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Hack.zip
-  Install the font into your OS and set it as the monospace font for your terminal.
+
+Go to https://github.com/ryanoasis/nerd-fonts/releases and click on the link to "show all assets" under the latest release.
+
+I prefer Hack, here is the link for the latest release at the time of this writing:
+    https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Hack.zip
+
+Install the font into your OS and set it as the monospace font for your terminal.
 
 
 ## Installation
@@ -22,5 +25,6 @@ My personal init.vim for Neovim 0.5 or higher. Does NOT work with Vim (has some 
 
 ## Notes
 Ubuntu 22.04 LTS still has an old version of Neovim packaged (v0.6.1), and my init.vim is configured to expect a newer version of Neovim which has some breaking changes in Lua...  So if you're using my neovim-config setup on an Ubuntu 22.04 LTS-based distro, then you'll need to modify the init.vim to include a few tags to download some older versions of plugins:
-	Plug 'lukas-reineke/indent-blankline.nvim', { 'tag': 'v2.12.0' }
-	Plug 'nvim-lualine/lualine.nvim', { 'tag': 'compat-nvim-0.6' }
+
+    Plug 'lukas-reineke/indent-blankline.nvim', { 'tag': 'v2.12.0' }
+    Plug 'nvim-lualine/lualine.nvim', { 'tag': 'compat-nvim-0.6' }
