@@ -9,7 +9,7 @@ Go to https://github.com/ryanoasis/nerd-fonts/releases and click on the link to 
 
 I prefer Hack, here is the link for the latest release at the time of this writing:
 
-    https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Hack.zip
+https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Hack.zip
 
 Install the font into your OS and set it as the monospace font for your terminal.
 
