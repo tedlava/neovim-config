@@ -2,7 +2,9 @@
 " $ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 " Make sure a Nerd-compatible patched font is installed: https://www.nerdfonts.com/
-" Here is the link for Hack: https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip
+" Go to https://github.com/ryanoasis/nerd-fonts/releases and click on 'show all assets'
+" I prefer Hack, here is the link for the latest release at the time of this writing:
+"       https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Hack.zip
 " On non-Windows operating system, delete all of the Windows-compatible fonts.
 " Make sure the monospace font set by the OS is configured to use the patched font above.
 " On Linux, make sure ~/.local/share/fonts has the patched font or is linked to a
