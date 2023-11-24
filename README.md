@@ -15,13 +15,13 @@ Install the font into your OS and set it as the monospace font for your terminal
 
 
 ## Installation
-- I recommend to `cd` into a specific directory where you keep your configs, like a `setup` directory
-- $ `git clone https://github.com/tedlava/neovim-config.git`
-- $ `mkdir ~/.config/nvim`
-- $ `ln -s ./neovim-config/*.vim ~/.config/nvim/`
+- I recommend to `cd` into a specific directory where you keep your configs, like a `~/Setup` directory
+$ `git clone https://github.com/tedlava/neovim-config.git`
+$ `mkdir ~/.config/nvim`
+$ `ln -s ./neovim-config/*.vim ~/.config/nvim/`
 - Install vim-plug with:
-- $ `sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'`
-- $ `nvim -c PlugInstall`
+$ `sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'`
+$ `nvim -c PlugInstall`
 
 
 ## Notes
