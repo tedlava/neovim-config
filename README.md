@@ -6,7 +6,7 @@ My personal init.vim for Neovim 0.5 or higher. Does NOT work with Vim (has some 
 - Make sure a Nerd-compatible patched font is installed: https://www.nerdfonts.com/  
 Go to https://github.com/ryanoasis/nerd-fonts/releases and click on the link to "show all assets" under the latest release.
 
-I prefer Hack, here is the link for the latest release at the time of this writing:  
+** I prefer Hack, here is the link for the latest release at the time of this writing:  
 https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Hack.zip  
 Install the font into your OS and set it as the monospace font for your terminal.
 
@@ -16,7 +16,7 @@ Install the font into your OS and set it as the monospace font for your terminal
 $ `git clone https://github.com/tedlava/neovim-config.git`  
 $ `mkdir ~/.config/nvim`  
 $ `ln -s ./neovim-config/*.vim ~/.config/nvim/`  
-- Install vim-plug with:
+- Install vim-plug with:  
 $ `sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'`  
 $ `nvim -c PlugInstall`  
 
