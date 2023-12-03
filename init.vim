@@ -13,10 +13,10 @@
 
 call plug#begin(stdpath('data') . '/plugged')
 Plug 'liuchengxu/space-vim-theme'
-Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'lukas-reineke/indent-blankline.nvim', { 'tag': 'v2.17.0' }
 Plug 'simnalamburt/vim-mundo'
 Plug 'nvim-lualine/lualine.nvim'
-Plug 'kyazdani42/nvim-web-devicons'
+Plug 'ryanoasis/vim-devicons'
 Plug 'zah/nim.vim'
 Plug 'constructingcode/vim-timestampedbackups'
 call plug#end()
