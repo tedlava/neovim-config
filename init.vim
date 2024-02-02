@@ -174,7 +174,11 @@ inoremap <C-l> <C-x><C-l>
 " 	Lines
 
 
-" Turn off search highlighting
+" Searching shortcuts
+vnoremap / y/<C-r>"<CR>
+vnoremap ? y?<C-r>"<CR>
+vnoremap <leader>/ y/\<<C-r>"\><CR>
+vnoremap <leader>? y?\<<C-r>"\><CR>
 nnoremap <leader>h :noh<CR>
 
 
