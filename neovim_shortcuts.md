@@ -98,7 +98,8 @@ Delete the current buffer (from memory, i.e., just close the file), but attempt 
 
 
 ## AUTOCOMPLETION SHORTCUTS
-(use 'CTRL p' or 'CTRL n' to navigate up/down on the popup menus from any of the commands below)
+*'CTRL p' and 'CTRL n' while typing a partial word is already a built-in shortcut to autocomplete to any other word in the currently open buffers, and is also how you navigate up/down in any of the pop-up menus from the commands below*
+
 ### (while typing a partial filename/path) CTRL f   ->   inoremap <C-f> <C-x><C-f>
 Autocomplete a filename or path
 
