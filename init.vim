@@ -130,7 +130,9 @@ noremap <C-Up> {
 " 	Use CTRL + arrow keys to jump to/across whitespace in any direction
 
 
-" Split window navigation shortcuts
+" Split window shortcuts
+nnoremap <leader>v <C-w><C-v>:bn<CR>
+nnoremap <leader>s <C-w><C-s>:bn<CR>
 nnoremap <C-h> <C-w><C-h>
 nnoremap <C-j> <C-w><C-j>
 nnoremap <C-k> <C-w><C-k>
@@ -146,23 +148,21 @@ nnoremap <S-Right> <C-w>>
 
 
 " Buffer and tab shortcuts
-nnoremap <leader><leader> :b#<CR>
-nnoremap \\ :b#<CR>
+nnoremap <leader>f :e<Space>.<CR>
+nnoremap <leader>w :w<CR>
+nnoremap <leader>W :wa<CR>
 nnoremap <leader>b :ls<CR>:buffer 
 nnoremap <leader>B :ls<CR>:tab sb 
-nnoremap <leader>D :bn<CR>:bd#<CR>
-" 	The above keymap will delete the current buffer and switch to
-" 	next buffer without losing current window split (may close other
-" 	splits if multiple splits are pointing to the same buffer)
-nnoremap <leader>v <C-w><C-v>:bn<CR>
-nnoremap <leader>s <C-w><C-s>:bn<CR>
+nnoremap <leader><leader> :b#<CR>
+nnoremap \\ :b#<CR>
 nnoremap <leader>n :bn<CR>
 nnoremap <leader>N :tab sbn<CR>
 nnoremap <leader>p :bp<CR>
 nnoremap <leader>P :tab sbp<CR>
-nnoremap <leader>w :w<CR>
-nnoremap <leader>W :wa<CR>
-nnoremap <leader>f :e<Space>.<CR>
+nnoremap <leader>D :bn<CR>:bd#<CR>
+" 	The above keymap will delete the current buffer and switch to
+" 	next buffer without losing current window split (may close other
+" 	splits if multiple splits are pointing to the same buffer)
 
 
 " Autocompletion shortcuts
