@@ -175,8 +175,6 @@ inoremap <C-l> <C-x><C-l>
 
 
 " Searching shortcuts
-vnoremap / y/<C-r>"<CR>
-vnoremap ? y?<C-r>"<CR>
 vnoremap <leader>/ y/\<<C-r>"\><CR>
 vnoremap <leader>? y?\<<C-r>"\><CR>
 nnoremap <leader>h :noh<CR>
@@ -192,14 +190,14 @@ nnoremap <leader>u :MundoToggle<CR>
 
 " TODO list shortcuts
 nnoremap <Leader>d i<C-r>=strftime('%F %a %T')<CR>
-nnoremap <Leader>t o- [ ] 
-nnoremap <Leader>T O- [ ] 
-nnoremap <Leader>x 0f[lrxA [<C-r>=strftime('%F %a %T')<CR>]<Esc>
+nnoremap <Leader>t o[_] 
+nnoremap <Leader>T O[_] 
+nnoremap <Leader>x V/\%V\[_\]<CR><Esc>lrxA [<C-r>=strftime('%F %a %T')<CR>]<Esc>0fx<CR>:noh<CR>
 nmap <Leader>X \xddGp<C-o>
-inoremap <C-j> <Esc>o- [ ] 
-vnoremap <Leader>t :g!/- \[ \] /normal I- [ ] <CR>:noh<CR>
-vmap <Leader>x :g/- \[ \] /normal \x<CR>:noh<CR>
-vmap <Leader>X :g/- \[ \] /normal \xddGp<CR><C-o>:noh<CR>
+inoremap <C-j> <Esc>o[_] 
+vnoremap <Leader>t :g!/\[_\] /normal I[_] <CR>:noh<CR>
+vmap <Leader>x :g/\[_\] /normal \x<CR>:noh<CR>
+vmap <Leader>X :g/\[_\] /normal \xddGp<CR><C-o>:noh<CR>
 
 
 " For Nim plugin
