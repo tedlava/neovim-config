@@ -192,12 +192,12 @@ nnoremap <leader>u :MundoToggle<CR>
 nnoremap <Leader>d i<C-r>=strftime('%F %a %T')<CR>
 nnoremap <Leader>t o[_] 
 nnoremap <Leader>T O[_] 
-nnoremap <Leader>x V/\%V\[_\]<CR><Esc>lrxA [<C-r>=strftime('%F %a %T')<CR>]<Esc>0fx<CR>:noh<CR>
+nmap <Leader>x V/\%V\[_\]<CR><Esc>lrxA []<Esc>\d<Esc>0fx\h
 nmap <Leader>X \xddGp<C-o>
 inoremap <C-j> <Esc>o[_] 
-vnoremap <Leader>t :g!/\[_\] /normal I[_] <CR>:noh<CR>
-vmap <Leader>x :g/\[_\] /normal \x<CR>:noh<CR>
-vmap <Leader>X :g/\[_\] /normal \xddGp<CR><C-o>:noh<CR>
+vmap <Leader>t :g!/\[_\] /normal I[_] <CR>\h
+vmap <Leader>x :g/\[_\] /normal \x<CR>\h
+vmap <Leader>X :g/\[_\] /normal \xddGp<CR><C-o>\h
 
 
 " For Nim plugin
